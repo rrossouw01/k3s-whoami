@@ -37,6 +37,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: whoami03
+name: whoami03
+namespace: whoami
+labels:
+    app: whoami03
 spec:
   replicas: 1
   selector:
@@ -49,6 +53,8 @@ spec:
     spec:
       containers:
       - image: traefik/whoami 
-        name: whoami-container
+        name: whoami03
         ports:
         - containerPort: 80
+          name: web
+          protocol: TCP
