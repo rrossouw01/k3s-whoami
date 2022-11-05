@@ -34,16 +34,16 @@ spec:
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: whoami-deployment
+  name: whoami03-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: whoami
+      app: whoami03
   template:
     metadata:
       labels:
-        app: whoami
+        app: whoami03
     spec:
       containers:
       - image: ctmagazin/whoami 
