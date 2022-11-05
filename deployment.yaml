@@ -38,8 +38,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-  labels:
-    app: whoami03
   name: whoami03
   namespace: whoami
 spec:
@@ -56,4 +54,3 @@ spec:
         - containerPort: 80
           name: web
           protocol: TCP
-        resources: {}
