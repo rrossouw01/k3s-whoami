@@ -16,7 +16,6 @@ spec:
               name: web
         path: /
         pathType: Prefix
-
 ---
 apiVersion: v1
 kind: Service
@@ -32,7 +31,6 @@ spec:
     targetPort: web
   selector:
     app: whoami03
-    
 ---
 apiVersion: apps/v1
 kind: Deployment
