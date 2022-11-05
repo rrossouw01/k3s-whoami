@@ -34,7 +34,7 @@ spec:
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: whoami03-deployment
+  name: whoami03
 spec:
   replicas: 1
   selector:
