@@ -46,7 +46,7 @@ spec:
         app: whoami03
     spec:
       containers:
-      - image: ctmagazin/whoami 
+      - image: traefik/whoami 
         name: whoami-container
         ports:
         - containerPort: 8000
