@@ -1,3 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: whoami03
+  name: whoami03
+  namespace: whoami
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: whoami03
+  template:
+    metadata:
+      labels:
+        app: whoami03
+    spec:
+      containers:
+      - image: traefik/whoami
+        imagePullPolicy: Always
+        name: whoami03
+        ports:
+        - containerPort: 80
+          name: web
+          protocol: TCP
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -16,7 +42,6 @@ spec:
               name: web
         path: /
         pathType: Prefix
----
 apiVersion: v1
 kind: Service
 metadata:
@@ -31,30 +56,3 @@ spec:
     targetPort: web
   selector:
     app: whoami03
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  annotations:
-  labels:
-    app: whoami03
-  name: whoami03
-  namespace: whoami
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: whoami02
-  template:
-    metadata:
-      labels:
-        app: whoami02
-    spec:
-      containers:
-      - image: traefik/whoami
-        imagePullPolicy: Always
-        name: whoami02
-        ports:
-        - containerPort: 80
-          name: web
-          protocol: TCP
